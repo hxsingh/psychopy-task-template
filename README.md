@@ -8,7 +8,7 @@ The goal of this template is to answer three questions for new users:
 - **What goes in each routine?**
 - **Why is the task organized this way?**
 
-Below we explain the workflow in **plain English**, assuming **no prior experience** with PsychoPy or CyclePipe.
+Below we explain the workflow in **plain English**, assuming **no prior experience** with PsychoPy.
 
 ---
 
