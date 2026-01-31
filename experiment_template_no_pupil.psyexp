@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" ?>
-<PsychoPy2experiment encoding="utf-8" version="2024.2.4">
+<PsychoPy2experiment encoding="utf-8" version="2024.2.2a1">
   <Settings>
     <Param val="4" valType="str" updates="None" name="Audio latency priority"/>
     <Param val="ptb" valType="str" updates="None" name="Audio lib"/>
@@ -46,7 +46,7 @@
     <Param val="False" valType="bool" updates="None" name="elSimMode"/>
     <Param val="RIGHT_EYE" valType="str" updates="None" name="elTrackEyes"/>
     <Param val="PUPIL_CR_TRACKING" valType="str" updates="None" name="elTrackingMode"/>
-    <Param val="nback_flanker_no_pupil" valType="str" updates="None" name="expName"/>
+    <Param val="experiment_template_no_pupil" valType="str" updates="None" name="expName"/>
     <Param val="on Sync" valType="str" updates="None" name="exportHTML"/>
     <Param val="None" valType="str" updates="None" name="eyetracker"/>
     <Param val="" valType="code" updates="None" name="frameRate"/>
@@ -70,7 +70,7 @@
     <Param val="1000" valType="num" updates="None" name="plPupilRemoteTimeoutMs"/>
     <Param val="False" valType="bool" updates="None" name="plPupillometryOnly"/>
     <Param val="psychopy_iohub_surface" valType="str" updates="None" name="plSurfaceName"/>
-    <Param val="0" valType="code" updates="None" name="runMode"/>
+    <Param val="1" valType="code" updates="None" name="runMode"/>
     <Param val="False" valType="bool" updates="None" name="rush"/>
     <Param val="time" valType="str" updates="None" name="sortColumns"/>
     <Param val="" valType="str" updates="None" name="tbLicenseFile"/>
@@ -162,7 +162,7 @@
       <CodeComponent name="trigger_table" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="##TASK ID TRIGGER VALUES##&amp;#10;# special code 100 (task start, task ID should follow immediately)&amp;#10;task_start_code = 100&amp;#10;# special code 108 (task ID for nback flanker task)&amp;#10;task_ID_code = 108&amp;#10;print(&quot;Starting experiment: &lt; N-back Flanker Task &gt;. Task ID:&quot;, task_ID_code)&amp;#10;&amp;#10;##GENERAL TRIGGER VALUES##&amp;#10;# special code 122 (block start)&amp;#10;block_start_code = 122&amp;#10;# special code 123 (block end)&amp;#10;block_end_code = 123&amp;#10;&amp;#10;##TASK SPECIFIC TRIGGER VALUES##&amp;#10;# N.B.: only use values 1-99 and provide clear comments on used values&amp;#10;iti_start_code = 9&amp;#10;letter_start_code = 10&amp;#10;cue_start_code = 11&amp;#10;feedback_start_code = 12&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="##TASK ID TRIGGER VALUES##&amp;#10;# special code 100 (task start, task ID should follow immediately)&amp;#10;task_start_code = 100&amp;#10;# special code xxx (task ID for your task)&amp;#10;task_ID_code = 000 # Assign a task ID code (check with Alex on existing ones)&amp;#10;print(&quot;Starting experiment: &lt; Task Name &gt;. Task ID:&quot;, task_ID_code)&amp;#10;&amp;#10;##GENERAL TRIGGER VALUES##&amp;#10;# special code 122 (block start)&amp;#10;block_start_code = 122&amp;#10;# special code 123 (block end)&amp;#10;block_end_code = 123&amp;#10;&amp;#10;##TASK SPECIFIC TRIGGER VALUES##&amp;#10;# N.B.: only use values 1-99 and provide clear comments on used values&amp;#10;&amp;#10;# Assign codes to trigger events relevant to your task&amp;#10;&amp;#10;# Example trigger event used in this template&amp;#10;iti_start_code = 9&amp;#10;#letter_start_code = 10&amp;#10;#cue_start_code = 11&amp;#10;#feedback_start_code = 12&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
@@ -213,7 +213,7 @@
       <CodeComponent name="condition_setup" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="PUT YOUR CODE HERE FOR YOUR EXPERIMENT" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="&quot;&quot;&quot;&amp;#10;Put python script here to fully generate experiment conditions and relevant variables&amp;#10;DO NOT USE A .CSV FILE THAT GETS IMPORTED IN LOOPS - NOT ROBUST AND NOT EASILY TESTABLE&amp;#10;&quot;&quot;&quot;&amp;#10;&amp;#10;# single RNG for this session&amp;#10;rng = np.random.default_rng()&amp;#10;&amp;#10;# ------------------------------------------------------&amp;#10;# Stimuli parameters&amp;#10;# ------------------------------------------------------&amp;#10;&amp;#10;&amp;#10;# ------------------------------------------------------&amp;#10;# Numbers of blocks and trials&amp;#10;# ------------------------------------------------------&amp;#10;block_list = [1, 2]&amp;#10;&amp;#10;# ------------------------------------------------------&amp;#10;# Helper functions&amp;#10;# ------------------------------------------------------&amp;#10;&amp;#10;&amp;#10;# ======================================================&amp;#10;# PRACTICE + MAIN TRIAL SETUP&amp;#10;# ======================================================&amp;#10;practice_list = [1, 2, 3]&amp;#10;trial_list = [1, 2, 3, 4, 5]&amp;#10;&amp;#10;# ======================================================&amp;#10;# Sanity checks&amp;#10;# ======================================================&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
@@ -331,7 +331,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# --- Determine n-back level for this block ---&amp;#10;&amp;#10;THIS CODE TELLS YOU WHAT BLOCK THE PATIENT WILL BE WORKING ON&amp;#10;&amp;#10;# n_back_blocks is defined in the __start__ routine: [0, 1]&amp;#10;n_back = n_back_blocks[nbackBlocks.thisRepN]  # 0-back for first block, 1-back for second&amp;#10;&amp;#10;# --- Select the correct condition lists for this block ---&amp;#10;if n_back == 0:&amp;#10;    practiceBlockTrials  = practice0   # 0-back practice&amp;#10;    blockTrials          = trials0     # main 0-back trials&amp;#10;&amp;#10;else:&amp;#10;    practiceBlockTrials  = practice1   # 1-back practice&amp;#10;    blockTrials          = trials1     # main 1-back trials&amp;#10;&amp;#10;# --- Show welcome screen only for FIRST block ---&amp;#10;if nbackBlocks.thisRepN &gt; 0:&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;    # End the main experiment trial block from the previous loop&amp;#10;    dev.activate_line(bitmask=block_end_code)&amp;#10;    core.wait(0.5)  # wait 500ms before next block start trigger&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# --- Set-up code for each block ---&amp;#10;# example of indexing from a list created in condition_setup component in __start__ routine&amp;#10;current_block_idx = block_list[blockloop.thisRepN]&amp;#10;&amp;#10;# --- Show welcome screen only for FIRST block ---&amp;#10;if blockloop.thisRepN &gt; 0:&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;    # End the main experiment trial block from the previous loop&amp;#10;    dev.activate_line(bitmask=block_end_code)&amp;#10;    core.wait(0.5)  # wait 500ms before next block start trigger&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -413,7 +413,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="&amp;#10;THESE ARE PRACTICE INSTRUCTIONS THAT PATIENT WILL SEE DEPENDING ON TASK&amp;#10;&amp;#10;&amp;#10;phase = 'practice'&amp;#10;&amp;#10;if n_back == 0:&amp;#10;    practice_instruct_msg = (&amp;#10;        &quot;0-Back Practice\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Rule: Look for the target letter &quot; + target0 + &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press GREEN key if the CENTER letter is &quot; + target0 + &quot;.\n&quot;&amp;#10;        &quot;Press RED key for any other letter.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Wait for the '&lt; &gt;' prompt before responding.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press the green key to start practice trials&quot;&amp;#10;    )&amp;#10;&amp;#10;else:&amp;#10;    practice_instruct_msg = (&amp;#10;        &quot;1-Back Practice\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Rule: Compare the current CENTER letter to the PREVIOUS CENTER letter\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press GREEN key if the CENTER letter is the SAME as the previous CENTER letter.\n&quot;&amp;#10;        &quot;Press RED key if the CENTER letter is DIFFERENT from the previous CENTER letter.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Wait for the '&lt; &gt;' prompt before responding.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press the green key to start practice trials&quot;&amp;#10;    )&amp;#10;&amp;#10;# Start a practice block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;# no need to wait 500ms as instructions are displayed&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Add block specific instructions&amp;#10;&amp;#10;phase = 'practice'&amp;#10;&amp;#10;# Select the correct text using the variable created in blockSetup component in welcome routine&amp;#10;if current_block_idx == 1:&amp;#10;    practice_instruct_msg = (&amp;#10;        &quot;Some instructions for block type 1&quot;&amp;#10;    )&amp;#10;&amp;#10;else:&amp;#10;    practice_instruct_msg = (&amp;#10;        &quot;Some instructions for block type 2&quot;&amp;#10;    )&amp;#10;&amp;#10;# Start a practice block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;# no need to wait 500ms as instructions are displayed&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -495,7 +495,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="THIS CODE TELLS US WHAT TASK SHOULD BE TRIGGERED&amp;#10;&amp;#10;# The following variables are already defined at this point:&amp;#10;#   phase == 'practice'  (set in practiceIntro)  OR&amp;#10;#   phase == 'main'      (set in trialIntro)&amp;#10;#&amp;#10;# blockSetup in the welcome routine created:&amp;#10;#   practiceBlockTrials : list of practice rows for this block&amp;#10;#   blockTrials         : list of main rows for this block&amp;#10;&amp;#10;# Get that row from the pre-built list&amp;#10;if phase == 'practice':&amp;#10;    row = practiceBlockTrials[practice.thisRepN]&amp;#10;&amp;#10;else:&amp;#10;    row = blockTrials[trials.thisRepN]&amp;#10;&amp;#10;# Jittered cueOnset: time when '+' appears, AFTER the letters disappear&amp;#10;cueOnset = rng.uniform(respCueJitter[0], respCueJitter[1]) + stimulusDur  # stimulusDur = 0.5&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# --- Set-up code for each trial ---&amp;#10;&amp;#10;# Get a trial row from a pre-built list&amp;#10;if phase == 'practice':&amp;#10;    row = practice_list[trials.thisRepN]&amp;#10;else:&amp;#10;    row = trial_list[trials.thisRepN]" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -506,163 +506,15 @@
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="trialSetup" valType="code" updates="None" name="name"/>
       </CodeComponent>
-      <TextComponent name="leftFlank" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="False" valType="code" updates="constant" name="draggable"/>
-        <Param val="0.5" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.15" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="leftFlank" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(-0.15, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="$stimulusDur" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$row['flanker_letter']*3" valType="str" updates="set every repeat" name="text"/>
-        <Param val="norm" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
-      <TextComponent name="central" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="False" valType="code" updates="constant" name="draggable"/>
-        <Param val="0.5" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.15" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="central" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="$stimulusDur" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$row['central_letter']" valType="str" updates="set every repeat" name="text"/>
-        <Param val="norm" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
-      <TextComponent name="rightFlank" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="False" valType="code" updates="constant" name="draggable"/>
-        <Param val="0.5" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.15" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="rightFlank" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0.15, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="$stimulusDur" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$row['flanker_letter']*3" valType="str" updates="set every repeat" name="text"/>
-        <Param val="norm" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
-      <TextComponent name="respCue" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="False" valType="code" updates="constant" name="draggable"/>
-        <Param val="3.0" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.2" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="respCue" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="2.0" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="$cueOnset" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="$cueDur" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="&lt; &gt;" valType="str" updates="constant" name="text"/>
-        <Param val="norm" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
-      <KeyboardComponent name="earlyResp" plugin="None">
-        <Param val="'1', '2'" valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="" valType="str" updates="constant" name="correctAns"/>
-        <Param val="" valType="str" updates="None" name="deviceLabel"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
-        <Param val="2.0" valType="code" updates="None" name="durationEstim"/>
-        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="earlyResp" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="time (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="$cueOnset" valType="code" updates="constant" name="stopVal"/>
-        <Param val="all keys" valType="str" updates="constant" name="store"/>
-        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
-      </KeyboardComponent>
-      <KeyboardComponent name="resp" plugin="None">
-        <Param val="'1','2'" valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="" valType="str" updates="constant" name="correctAns"/>
-        <Param val="" valType="str" updates="None" name="deviceLabel"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
-        <Param val="3.0" valType="code" updates="None" name="durationEstim"/>
-        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="resp" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="2.0" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="$cueOnset" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="$cueDur" valType="code" updates="constant" name="stopVal"/>
-        <Param val="first key" valType="str" updates="constant" name="store"/>
-        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
-      </KeyboardComponent>
       <CodeComponent name="trigger_trial" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="letter_trigger_started = False&amp;#10;cue_trigger_started = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="#letter_trigger_started = False&amp;#10;#cue_trigger_started = False&amp;#10;#" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
-        <Param val="if rightFlank.status == STARTED and not letter_trigger_started:&amp;#10;    win.callOnFlip(dev.activate_line, bitmask=letter_start_code)&amp;#10;    letter_trigger_started = True&amp;#10;&amp;#10;if respCue.status == STARTED and not cue_trigger_started:&amp;#10;    win.callOnFlip(dev.activate_line, bitmask=cue_start_code)&amp;#10;    cue_trigger_started = True&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="#if rightFlank.status == STARTED and not letter_trigger_started:&amp;#10;#    win.callOnFlip(dev.activate_line, bitmask=letter_start_code)&amp;#10;#    letter_trigger_started = True&amp;#10;#&amp;#10;#if respCue.status == STARTED and not cue_trigger_started:&amp;#10;#    win.callOnFlip(dev.activate_line, bitmask=cue_start_code)&amp;#10;#    cue_trigger_started = True&amp;#10;#" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
@@ -695,7 +547,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="THIS IS THE EXAMPLE FEEBACK THE PATIENT SEES ON THEIR END&amp;#10;&amp;#10;&amp;#10;&amp;#10;# ---- Feedback logic for practice ----&amp;#10;# Get early press (before cue)&amp;#10;early_key = earlyResp.keys&amp;#10;&amp;#10;# Get main press (after cue)&amp;#10;main_key = resp.keys&amp;#10;&amp;#10;# 1) Too fast: pressed BEFORE cue onset&amp;#10;if early_key is not None:&amp;#10;    fb_msg = &quot;Too fast. Wait for the cue to respond.&quot;&amp;#10;&amp;#10;# 2) Otherwise, if they responded after cue, score it&amp;#10;elif main_key is not None:&amp;#10;    fb_msg = &quot;Correct!&quot; if main_key == row['correctKey'] else &quot;Wrong&quot;&amp;#10;&amp;#10;# 3) No response at all&amp;#10;else:&amp;#10;    fb_msg = &quot;Too slow. Please try to respond quickly.&quot;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# ---- Feedback logic for practice ----&amp;#10;&amp;#10;## Get early press (before cue)&amp;#10;#early_key = earlyResp.keys&amp;#10;#&amp;#10;## Get main press (after cue)&amp;#10;#main_key = resp.keys&amp;#10;#&amp;#10;## 1) Too fast: pressed BEFORE cue onset&amp;#10;#if early_key is not None:&amp;#10;#    fb_msg = &quot;Too fast. Wait for the cue to respond.&quot;&amp;#10;#&amp;#10;## 2) Otherwise, if they responded after cue, score it&amp;#10;#elif main_key is not None:&amp;#10;#    fb_msg = &quot;Correct!&quot; if main_key == row['correctKey'] else &quot;Wrong&quot;&amp;#10;#&amp;#10;## 3) No response at all&amp;#10;#else:&amp;#10;#    fb_msg = &quot;Too slow. Please try to respond quickly.&quot;&amp;#10;#" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -739,9 +591,9 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="feedback_trigger_started = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="#feedback_trigger_started = False&amp;#10;#" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
-        <Param val="if fbText.status == STARTED and not feedback_trigger_started:&amp;#10;    win.callOnFlip(dev.activate_line, bitmask=feedback_start_code)&amp;#10;    feedback_trigger_started = True&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="#if fbText.status == STARTED and not feedback_trigger_started:&amp;#10;#    win.callOnFlip(dev.activate_line, bitmask=feedback_start_code)&amp;#10;#    feedback_trigger_started = True&amp;#10;#" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
@@ -774,7 +626,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="THIS GIVES INSTRUCTIONS AGAIN FOR THE MAIN TRIAL RUN&amp;#10;&amp;#10;&amp;#10;phase = 'main'&amp;#10;&amp;#10;if n_back == 0:&amp;#10;    instruct_msg = (&amp;#10;        &quot;0-Back Trials\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Target letter: &quot; + target0 + &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press GREEN key if the CENTER letter is &quot; + target0 + &quot;.\n&quot;&amp;#10;        &quot;Press RED key for any other letter.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;You can ignore the letters on the sides, and you won't receive feedback.\n&quot;&amp;#10;        &quot;Wait for the '&lt; &gt;' prompt before responding.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press the green key to begin&quot;&amp;#10;    )&amp;#10;&amp;#10;else:&amp;#10;    instruct_msg = (&amp;#10;        &quot;1-Back Trials\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press GREEN key if the CENTER letter is the SAME as the previous CENTER letter.\n&quot;&amp;#10;        &quot;Press RED key if the CENTER letter is DIFFERENT from the previous CENTER letter.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;You can ignore the letters on the sides, and you won't receive feedback.\n&quot;&amp;#10;        &quot;Wait for the '&lt; &gt;' prompt before responding.\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;\n&quot;&amp;#10;        &quot;Press the green key to begin&quot;&amp;#10;    )&amp;#10;&amp;#10;# End the practice block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;core.wait(0.5)  # wait 500ms before next block start trigger&amp;#10;&amp;#10;# Start a main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;# no need to wait 500ms as instructions are displayed&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Add block specific instructions&amp;#10;&amp;#10;phase = 'main'&amp;#10;&amp;#10;# Select the correct text using the variable created in blockSetup component in welcome routine&amp;#10;if current_block_idx == 1:&amp;#10;    instruct_msg = (&amp;#10;        &quot;Some instructions for block type 1&quot;&amp;#10;    )&amp;#10;&amp;#10;else:&amp;#10;    instruct_msg = (&amp;#10;        &quot;Some instructions for block type 2&quot;&amp;#10;    )&amp;#10;&amp;#10;# End the practice block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;core.wait(0.5)  # wait 500ms before next block start trigger&amp;#10;&amp;#10;# Start a main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;# no need to wait 500ms as instructions are displayed&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -836,15 +688,15 @@
   </Routines>
   <Flow>
     <Routine name="__start__"/>
-    <LoopInitiator loopType="TrialHandler" name="nbackBlocks">
+    <LoopInitiator loopType="TrialHandler" name="blockloop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
       <Param name="conditionsFile" updates="None" val="" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="len(n_back_blocks)" valType="num"/>
-      <Param name="name" updates="None" val="nbackBlocks" valType="code"/>
+      <Param name="nReps" updates="None" val="len(block_list)" valType="num"/>
+      <Param name="name" updates="None" val="blockloop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="welcome"/>
@@ -857,7 +709,7 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="len(practiceBlockTrials)" valType="num"/>
+      <Param name="nReps" updates="None" val="len(practice_list)" valType="num"/>
       <Param name="name" updates="None" val="practice" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
@@ -881,7 +733,7 @@
     <Routine name="trial"/>
     <Routine name="ITI"/>
     <LoopTerminator name="trials"/>
-    <LoopTerminator name="nbackBlocks"/>
+    <LoopTerminator name="blockloop"/>
     <Routine name="__end__"/>
   </Flow>
 </PsychoPy2experiment>
