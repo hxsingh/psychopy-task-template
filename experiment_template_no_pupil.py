@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2024.2.4),
-    on January 28, 2026, at 12:37
+This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
+    on Fri Jan 30 22:26:29 2026
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -122,8 +122,8 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2024.2.4'
-expName = 'nback_flanker_no_pupil'  # from the Builder filename that created this script
+psychopyVersion = '2024.2.2a1'
+expName = 'experiment_template_no_pupil'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
     'participant': f"{randint(0, 999999):06.0f}",
@@ -209,7 +209,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\hxsingh\\Documents\\psychopy-task-template\\experiment_TEMPLATE_lastrun.py',
+        originPath='/Users/alexhe/Library/CloudStorage/Dropbox/Active_projects/PsychoPy/exp_template/experiment_template_no_pupil.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -233,6 +233,8 @@ def setupLogging(filename):
     psychopy.logging.LogFile
         Text stream to receive inputs from the logging system.
     """
+    # log the filename of last_app_load.log
+    print('target_last_app_load_log_file: ' + filename + '_last_app_load.log')
     # set how much information should be printed to the console / app
     if PILOTING:
         logging.console.setLevel(
@@ -349,18 +351,6 @@ def setupDevices(expInfo, thisExp, win):
         pracInstructKey = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='pracInstructKey',
-        )
-    if deviceManager.getDevice('earlyResp') is None:
-        # initialise earlyResp
-        earlyResp = deviceManager.addDevice(
-            deviceClass='keyboard',
-            deviceName='earlyResp',
-        )
-    if deviceManager.getDevice('resp') is None:
-        # initialise resp
-        resp = deviceManager.addDevice(
-            deviceClass='keyboard',
-            deviceName='resp',
         )
     if deviceManager.getDevice('instructKey') is None:
         # initialise instructKey
@@ -480,9 +470,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ##TASK ID TRIGGER VALUES##
     # special code 100 (task start, task ID should follow immediately)
     task_start_code = 100
-    # special code 108 (task ID for nback flanker task)
-    task_ID_code = 108
-    print("Starting experiment: < N-back Flanker Task >. Task ID:", task_ID_code)
+    # special code xxx (task ID for your task)
+    task_ID_code = 000 # Assign a task ID code (check with Alex on existing ones)
+    print("Starting experiment: < Task Name >. Task ID:", task_ID_code)
     
     ##GENERAL TRIGGER VALUES##
     # special code 122 (block start)
@@ -492,10 +482,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     ##TASK SPECIFIC TRIGGER VALUES##
     # N.B.: only use values 1-99 and provide clear comments on used values
+    
+    # Assign codes to trigger events relevant to your task
+    
+    # Example trigger event used in this template
     iti_start_code = 9
-    letter_start_code = 10
-    cue_start_code = 11
-    feedback_start_code = 12
+    #letter_start_code = 10
+    #cue_start_code = 11
+    #feedback_start_code = 12
     
     # Run 'Begin Experiment' code from task_id
     dev.activate_line(bitmask=task_start_code)  # special code for task start
@@ -503,7 +497,40 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     dev.activate_line(bitmask=task_ID_code)  # special code for task ID
     
     # Run 'Begin Experiment' code from condition_setup
-    PUT YOUR CODE HERE FOR YOUR EXPERIMENT
+    """
+    Put python script here to fully generate experiment conditions and relevant variables
+    DO NOT USE A .CSV FILE THAT GETS IMPORTED IN LOOPS - NOT ROBUST AND NOT EASILY TESTABLE
+    """
+    
+    # single RNG for this session
+    rng = np.random.default_rng()
+    
+    # ------------------------------------------------------
+    # Stimuli parameters
+    # ------------------------------------------------------
+    
+    
+    # ------------------------------------------------------
+    # Numbers of blocks and trials
+    # ------------------------------------------------------
+    block_list = [1, 2]
+    
+    # ------------------------------------------------------
+    # Helper functions
+    # ------------------------------------------------------
+    
+    
+    # ======================================================
+    # PRACTICE + MAIN TRIAL SETUP
+    # ======================================================
+    practice_list = [1, 2, 3]
+    trial_list = [1, 2, 3, 4, 5]
+    
+    # ======================================================
+    # Sanity checks
+    # ======================================================
+    
+    
     
     # --- Initialize components for Routine "welcome" ---
     welcomeText = visual.TextStim(win=win, name='welcomeText',
@@ -535,36 +562,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=0.0);
     
     # --- Initialize components for Routine "trial" ---
-    leftFlank = visual.TextStim(win=win, name='leftFlank',
-        text='',
-        font='Arial',
-        units='norm', pos=(-0.15, 0), draggable=False, height=0.15, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-1.0);
-    central = visual.TextStim(win=win, name='central',
-        text='',
-        font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.15, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-2.0);
-    rightFlank = visual.TextStim(win=win, name='rightFlank',
-        text='',
-        font='Arial',
-        units='norm', pos=(0.15, 0), draggable=False, height=0.15, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-3.0);
-    respCue = visual.TextStim(win=win, name='respCue',
-        text='< >',
-        font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.2, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-4.0);
-    earlyResp = keyboard.Keyboard(deviceName='earlyResp')
-    resp = keyboard.Keyboard(deviceName='resp')
     
     # --- Initialize components for Routine "feedback" ---
     fbText = visual.TextStim(win=win, name='fbText',
@@ -604,36 +601,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=0.0);
     
     # --- Initialize components for Routine "trial" ---
-    leftFlank = visual.TextStim(win=win, name='leftFlank',
-        text='',
-        font='Arial',
-        units='norm', pos=(-0.15, 0), draggable=False, height=0.15, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-1.0);
-    central = visual.TextStim(win=win, name='central',
-        text='',
-        font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.15, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-2.0);
-    rightFlank = visual.TextStim(win=win, name='rightFlank',
-        text='',
-        font='Arial',
-        units='norm', pos=(0.15, 0), draggable=False, height=0.15, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-3.0);
-    respCue = visual.TextStim(win=win, name='respCue',
-        text='< >',
-        font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.2, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-4.0);
-    earlyResp = keyboard.Keyboard(deviceName='earlyResp')
-    resp = keyboard.Keyboard(deviceName='resp')
     
     # --- Initialize components for Routine "ITI" ---
     fixation = visual.TextStim(win=win, name='fixation',
@@ -770,29 +737,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    nbackBlocks = data.TrialHandler2(
-        name='nbackBlocks',
-        nReps=len(n_back_blocks), 
+    blockloop = data.TrialHandler2(
+        name='blockloop',
+        nReps=len(block_list), 
         method='sequential', 
         extraInfo=expInfo, 
         originPath=-1, 
         trialList=[None], 
         seed=None, 
     )
-    thisExp.addLoop(nbackBlocks)  # add the loop to the experiment
-    thisNbackBlock = nbackBlocks.trialList[0]  # so we can initialise stimuli with some values
-    # abbreviate parameter names if possible (e.g. rgb = thisNbackBlock.rgb)
-    if thisNbackBlock != None:
-        for paramName in thisNbackBlock:
-            globals()[paramName] = thisNbackBlock[paramName]
+    thisExp.addLoop(blockloop)  # add the loop to the experiment
+    thisBlockloop = blockloop.trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisBlockloop.rgb)
+    if thisBlockloop != None:
+        for paramName in thisBlockloop:
+            globals()[paramName] = thisBlockloop[paramName]
     
-    for thisNbackBlock in nbackBlocks:
-        currentLoop = nbackBlocks
+    for thisBlockloop in blockloop:
+        currentLoop = blockloop
         thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
-        # abbreviate parameter names if possible (e.g. rgb = thisNbackBlock.rgb)
-        if thisNbackBlock != None:
-            for paramName in thisNbackBlock:
-                globals()[paramName] = thisNbackBlock[paramName]
+        # abbreviate parameter names if possible (e.g. rgb = thisBlockloop.rgb)
+        if thisBlockloop != None:
+            for paramName in thisBlockloop:
+                globals()[paramName] = thisBlockloop[paramName]
         
         # --- Prepare to start Routine "welcome" ---
         # create an object to store info about Routine welcome
@@ -804,24 +771,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         # Run 'Begin Routine' code from blockSetup
-        # --- Determine n-back level for this block ---
-        
-        THIS CODE TELLS YOU WHAT BLOCK THE PATIENT WILL BE WORKING ON
-        
-        # n_back_blocks is defined in the __start__ routine: [0, 1]
-        n_back = n_back_blocks[nbackBlocks.thisRepN]  # 0-back for first block, 1-back for second
-        
-        # --- Select the correct condition lists for this block ---
-        if n_back == 0:
-            practiceBlockTrials  = practice0   # 0-back practice
-            blockTrials          = trials0     # main 0-back trials
-        
-        else:
-            practiceBlockTrials  = practice1   # 1-back practice
-            blockTrials          = trials1     # main 1-back trials
+        # --- Set-up code for each block ---
+        # example of indexing from a list created in condition_setup component in __start__ routine
+        current_block_idx = block_list[blockloop.thisRepN]
         
         # --- Show welcome screen only for FIRST block ---
-        if nbackBlocks.thisRepN > 0:
+        if blockloop.thisRepN > 0:
             continueRoutine = False
         
             # End the main experiment trial block from the previous loop
@@ -853,7 +808,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         # --- Run Routine "welcome" ---
         # if trial has changed, end Routine now
-        if isinstance(nbackBlocks, data.TrialHandler2) and thisNbackBlock.thisN != nbackBlocks.thisTrial.thisN:
+        if isinstance(blockloop, data.TrialHandler2) and thisBlockloop.thisN != blockloop.thisTrial.thisN:
             continueRoutine = False
         welcome.forceEnded = routineForceEnded = not continueRoutine
         while continueRoutine:
@@ -959,42 +914,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         # Run 'Begin Routine' code from setPracInstruct
-        
-        THESE ARE PRACTICE INSTRUCTIONS THAT PATIENT WILL SEE DEPENDING ON TASK
-        
+        # Add block specific instructions
         
         phase = 'practice'
         
-        if n_back == 0:
+        # Select the correct text using the variable created in blockSetup component in welcome routine
+        if current_block_idx == 1:
             practice_instruct_msg = (
-                "0-Back Practice\n"
-                "\n"
-                "\n"
-                "Rule: Look for the target letter " + target0 + "\n"
-                "\n"
-                "Press GREEN key if the CENTER letter is " + target0 + ".\n"
-                "Press RED key for any other letter.\n"
-                "\n"
-                "Wait for the '< >' prompt before responding.\n"
-                "\n"
-                "\n"
-                "Press the green key to start practice trials"
+                "Some instructions for block type 1"
             )
         
         else:
             practice_instruct_msg = (
-                "1-Back Practice\n"
-                "\n"
-                "\n"
-                "Rule: Compare the current CENTER letter to the PREVIOUS CENTER letter\n"
-                "\n"
-                "Press GREEN key if the CENTER letter is the SAME as the previous CENTER letter.\n"
-                "Press RED key if the CENTER letter is DIFFERENT from the previous CENTER letter.\n"
-                "\n"
-                "Wait for the '< >' prompt before responding.\n"
-                "\n"
-                "\n"
-                "Press the green key to start practice trials"
+                "Some instructions for block type 2"
             )
         
         # Start a practice block
@@ -1027,7 +959,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         # --- Run Routine "practiceIntro" ---
         # if trial has changed, end Routine now
-        if isinstance(nbackBlocks, data.TrialHandler2) and thisNbackBlock.thisN != nbackBlocks.thisTrial.thisN:
+        if isinstance(blockloop, data.TrialHandler2) and thisBlockloop.thisN != blockloop.thisTrial.thisN:
             continueRoutine = False
         practiceIntro.forceEnded = routineForceEnded = not continueRoutine
         while continueRoutine:
@@ -1156,7 +1088,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         # --- Run Routine "ITI" ---
         # if trial has changed, end Routine now
-        if isinstance(nbackBlocks, data.TrialHandler2) and thisNbackBlock.thisN != nbackBlocks.thisTrial.thisN:
+        if isinstance(blockloop, data.TrialHandler2) and thisBlockloop.thisN != blockloop.thisTrial.thisN:
             continueRoutine = False
         ITI.forceEnded = routineForceEnded = not continueRoutine
         while continueRoutine and routineTimer.getTime() < 2.0:
@@ -1251,7 +1183,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # set up handler to look after randomisation of conditions etc
         practice = data.TrialHandler2(
             name='practice',
-            nReps=len(practiceBlockTrials), 
+            nReps=len(practice_list), 
             method='sequential', 
             extraInfo=expInfo, 
             originPath=-1, 
@@ -1283,47 +1215,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine trial
             trial = data.Routine(
                 name='trial',
-                components=[leftFlank, central, rightFlank, respCue, earlyResp, resp],
+                components=[],
             )
             trial.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
             # Run 'Begin Routine' code from trialSetup
-            THIS CODE TELLS US WHAT TASK SHOULD BE TRIGGERED
+            # --- Set-up code for each trial ---
             
-            # The following variables are already defined at this point:
-            #   phase == 'practice'  (set in practiceIntro)  OR
-            #   phase == 'main'      (set in trialIntro)
-            #
-            # blockSetup in the welcome routine created:
-            #   practiceBlockTrials : list of practice rows for this block
-            #   blockTrials         : list of main rows for this block
-            
-            # Get that row from the pre-built list
+            # Get a trial row from a pre-built list
             if phase == 'practice':
-                row = practiceBlockTrials[practice.thisRepN]
-            
+                row = practice_list[trials.thisRepN]
             else:
-                row = blockTrials[trials.thisRepN]
-            
-            # Jittered cueOnset: time when '+' appears, AFTER the letters disappear
-            cueOnset = rng.uniform(respCueJitter[0], respCueJitter[1]) + stimulusDur  # stimulusDur = 0.5
-            
-            leftFlank.setText(row['flanker_letter']*3)
-            central.setText(row['central_letter'])
-            rightFlank.setText(row['flanker_letter']*3)
-            # create starting attributes for earlyResp
-            earlyResp.keys = []
-            earlyResp.rt = []
-            _earlyResp_allKeys = []
-            # create starting attributes for resp
-            resp.keys = []
-            resp.rt = []
-            _resp_allKeys = []
+                row = trial_list[trials.thisRepN]
             # Run 'Begin Routine' code from trigger_trial
-            letter_trigger_started = False
-            cue_trigger_started = False
-            
+            #letter_trigger_started = False
+            #cue_trigger_started = False
+            #
             # store start times for trial
             trial.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             trial.tStart = globalClock.getTime(format='float')
@@ -1356,233 +1264,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
-                
-                # *leftFlank* updates
-                
-                # if leftFlank is starting this frame...
-                if leftFlank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    leftFlank.frameNStart = frameN  # exact frame index
-                    leftFlank.tStart = t  # local t and not account for scr refresh
-                    leftFlank.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(leftFlank, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'leftFlank.started')
-                    # update status
-                    leftFlank.status = STARTED
-                    leftFlank.setAutoDraw(True)
-                
-                # if leftFlank is active this frame...
-                if leftFlank.status == STARTED:
-                    # update params
-                    pass
-                
-                # if leftFlank is stopping this frame...
-                if leftFlank.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > leftFlank.tStartRefresh + stimulusDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        leftFlank.tStop = t  # not accounting for scr refresh
-                        leftFlank.tStopRefresh = tThisFlipGlobal  # on global time
-                        leftFlank.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'leftFlank.stopped')
-                        # update status
-                        leftFlank.status = FINISHED
-                        leftFlank.setAutoDraw(False)
-                
-                # *central* updates
-                
-                # if central is starting this frame...
-                if central.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    central.frameNStart = frameN  # exact frame index
-                    central.tStart = t  # local t and not account for scr refresh
-                    central.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(central, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'central.started')
-                    # update status
-                    central.status = STARTED
-                    central.setAutoDraw(True)
-                
-                # if central is active this frame...
-                if central.status == STARTED:
-                    # update params
-                    pass
-                
-                # if central is stopping this frame...
-                if central.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > central.tStartRefresh + stimulusDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        central.tStop = t  # not accounting for scr refresh
-                        central.tStopRefresh = tThisFlipGlobal  # on global time
-                        central.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'central.stopped')
-                        # update status
-                        central.status = FINISHED
-                        central.setAutoDraw(False)
-                
-                # *rightFlank* updates
-                
-                # if rightFlank is starting this frame...
-                if rightFlank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    rightFlank.frameNStart = frameN  # exact frame index
-                    rightFlank.tStart = t  # local t and not account for scr refresh
-                    rightFlank.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(rightFlank, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'rightFlank.started')
-                    # update status
-                    rightFlank.status = STARTED
-                    rightFlank.setAutoDraw(True)
-                
-                # if rightFlank is active this frame...
-                if rightFlank.status == STARTED:
-                    # update params
-                    pass
-                
-                # if rightFlank is stopping this frame...
-                if rightFlank.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > rightFlank.tStartRefresh + stimulusDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        rightFlank.tStop = t  # not accounting for scr refresh
-                        rightFlank.tStopRefresh = tThisFlipGlobal  # on global time
-                        rightFlank.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'rightFlank.stopped')
-                        # update status
-                        rightFlank.status = FINISHED
-                        rightFlank.setAutoDraw(False)
-                
-                # *respCue* updates
-                
-                # if respCue is starting this frame...
-                if respCue.status == NOT_STARTED and tThisFlip >= cueOnset-frameTolerance:
-                    # keep track of start time/frame for later
-                    respCue.frameNStart = frameN  # exact frame index
-                    respCue.tStart = t  # local t and not account for scr refresh
-                    respCue.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(respCue, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'respCue.started')
-                    # update status
-                    respCue.status = STARTED
-                    respCue.setAutoDraw(True)
-                
-                # if respCue is active this frame...
-                if respCue.status == STARTED:
-                    # update params
-                    pass
-                
-                # if respCue is stopping this frame...
-                if respCue.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > respCue.tStartRefresh + cueDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        respCue.tStop = t  # not accounting for scr refresh
-                        respCue.tStopRefresh = tThisFlipGlobal  # on global time
-                        respCue.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'respCue.stopped')
-                        # update status
-                        respCue.status = FINISHED
-                        respCue.setAutoDraw(False)
-                
-                # *earlyResp* updates
-                waitOnFlip = False
-                
-                # if earlyResp is starting this frame...
-                if earlyResp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    earlyResp.frameNStart = frameN  # exact frame index
-                    earlyResp.tStart = t  # local t and not account for scr refresh
-                    earlyResp.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(earlyResp, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'earlyResp.started')
-                    # update status
-                    earlyResp.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(earlyResp.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(earlyResp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                
-                # if earlyResp is stopping this frame...
-                if earlyResp.status == STARTED:
-                    # is it time to stop? (based on local clock)
-                    if tThisFlip > cueOnset-frameTolerance:
-                        # keep track of stop time/frame for later
-                        earlyResp.tStop = t  # not accounting for scr refresh
-                        earlyResp.tStopRefresh = tThisFlipGlobal  # on global time
-                        earlyResp.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'earlyResp.stopped')
-                        # update status
-                        earlyResp.status = FINISHED
-                        earlyResp.status = FINISHED
-                if earlyResp.status == STARTED and not waitOnFlip:
-                    theseKeys = earlyResp.getKeys(keyList=['1', '2'], ignoreKeys=["escape"], waitRelease=False)
-                    _earlyResp_allKeys.extend(theseKeys)
-                    if len(_earlyResp_allKeys):
-                        earlyResp.keys = [key.name for key in _earlyResp_allKeys]  # storing all keys
-                        earlyResp.rt = [key.rt for key in _earlyResp_allKeys]
-                        earlyResp.duration = [key.duration for key in _earlyResp_allKeys]
-                
-                # *resp* updates
-                waitOnFlip = False
-                
-                # if resp is starting this frame...
-                if resp.status == NOT_STARTED and tThisFlip >= cueOnset-frameTolerance:
-                    # keep track of start time/frame for later
-                    resp.frameNStart = frameN  # exact frame index
-                    resp.tStart = t  # local t and not account for scr refresh
-                    resp.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(resp, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'resp.started')
-                    # update status
-                    resp.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(resp.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                
-                # if resp is stopping this frame...
-                if resp.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > resp.tStartRefresh + cueDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        resp.tStop = t  # not accounting for scr refresh
-                        resp.tStopRefresh = tThisFlipGlobal  # on global time
-                        resp.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'resp.stopped')
-                        # update status
-                        resp.status = FINISHED
-                        resp.status = FINISHED
-                if resp.status == STARTED and not waitOnFlip:
-                    theseKeys = resp.getKeys(keyList=['1','2'], ignoreKeys=["escape"], waitRelease=False)
-                    _resp_allKeys.extend(theseKeys)
-                    if len(_resp_allKeys):
-                        resp.keys = _resp_allKeys[0].name  # just the first key pressed
-                        resp.rt = _resp_allKeys[0].rt
-                        resp.duration = _resp_allKeys[0].duration
-                        # a response ends the routine
-                        continueRoutine = False
                 # Run 'Each Frame' code from trigger_trial
-                if rightFlank.status == STARTED and not letter_trigger_started:
-                    win.callOnFlip(dev.activate_line, bitmask=letter_start_code)
-                    letter_trigger_started = True
-                
-                if respCue.status == STARTED and not cue_trigger_started:
-                    win.callOnFlip(dev.activate_line, bitmask=cue_start_code)
-                    cue_trigger_started = True
-                
+                #if rightFlank.status == STARTED and not letter_trigger_started:
+                #    win.callOnFlip(dev.activate_line, bitmask=letter_start_code)
+                #    letter_trigger_started = True
+                #
+                #if respCue.status == STARTED and not cue_trigger_started:
+                #    win.callOnFlip(dev.activate_line, bitmask=cue_start_code)
+                #    cue_trigger_started = True
+                #
                 
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1631,20 +1321,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             
             THIS CODE ADDS RESULTS TO THE FINAL CSV FOR ANALYSIS
-            # check responses
-            if earlyResp.keys in ['', [], None]:  # No response was made
-                earlyResp.keys = None
-            practice.addData('earlyResp.keys',earlyResp.keys)
-            if earlyResp.keys != None:  # we had a response
-                practice.addData('earlyResp.rt', earlyResp.rt)
-                practice.addData('earlyResp.duration', earlyResp.duration)
-            # check responses
-            if resp.keys in ['', [], None]:  # No response was made
-                resp.keys = None
-            practice.addData('resp.keys',resp.keys)
-            if resp.keys != None:  # we had a response
-                practice.addData('resp.rt', resp.rt)
-                practice.addData('resp.duration', resp.duration)
             # the Routine "trial" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -1658,33 +1334,30 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             continueRoutine = True
             # update component parameters for each repeat
             # Run 'Begin Routine' code from setFbText
-            THIS IS THE EXAMPLE FEEBACK THE PATIENT SEES ON THEIR END
-            
-            
-            
             # ---- Feedback logic for practice ----
-            # Get early press (before cue)
-            early_key = earlyResp.keys
             
-            # Get main press (after cue)
-            main_key = resp.keys
-            
-            # 1) Too fast: pressed BEFORE cue onset
-            if early_key is not None:
-                fb_msg = "Too fast. Wait for the cue to respond."
-            
-            # 2) Otherwise, if they responded after cue, score it
-            elif main_key is not None:
-                fb_msg = "Correct!" if main_key == row['correctKey'] else "Wrong"
-            
-            # 3) No response at all
-            else:
-                fb_msg = "Too slow. Please try to respond quickly."
-            
+            ## Get early press (before cue)
+            #early_key = earlyResp.keys
+            #
+            ## Get main press (after cue)
+            #main_key = resp.keys
+            #
+            ## 1) Too fast: pressed BEFORE cue onset
+            #if early_key is not None:
+            #    fb_msg = "Too fast. Wait for the cue to respond."
+            #
+            ## 2) Otherwise, if they responded after cue, score it
+            #elif main_key is not None:
+            #    fb_msg = "Correct!" if main_key == row['correctKey'] else "Wrong"
+            #
+            ## 3) No response at all
+            #else:
+            #    fb_msg = "Too slow. Please try to respond quickly."
+            #
             fbText.setText(fb_msg)
             # Run 'Begin Routine' code from trigger_fb
-            feedback_trigger_started = False
-            
+            #feedback_trigger_started = False
+            #
             # store start times for feedback
             feedback.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             feedback.tStart = globalClock.getTime(format='float')
@@ -1747,10 +1420,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         fbText.status = FINISHED
                         fbText.setAutoDraw(False)
                 # Run 'Each Frame' code from trigger_fb
-                if fbText.status == STARTED and not feedback_trigger_started:
-                    win.callOnFlip(dev.activate_line, bitmask=feedback_start_code)
-                    feedback_trigger_started = True
-                
+                #if fbText.status == STARTED and not feedback_trigger_started:
+                #    win.callOnFlip(dev.activate_line, bitmask=feedback_start_code)
+                #    feedback_trigger_started = True
+                #
                 
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1924,7 +1597,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 routineTimer.addTime(-2.000000)
             thisExp.nextEntry()
             
-        # completed len(practiceBlockTrials) repeats of 'practice'
+        # completed len(practice_list) repeats of 'practice'
         
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
@@ -1940,41 +1613,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         # Run 'Begin Routine' code from setInstruct
-        THIS GIVES INSTRUCTIONS AGAIN FOR THE MAIN TRIAL RUN
-        
+        # Add block specific instructions
         
         phase = 'main'
         
-        if n_back == 0:
+        # Select the correct text using the variable created in blockSetup component in welcome routine
+        if current_block_idx == 1:
             instruct_msg = (
-                "0-Back Trials\n"
-                "\n"
-                "\n"
-                "Target letter: " + target0 + "\n"
-                "\n"
-                "Press GREEN key if the CENTER letter is " + target0 + ".\n"
-                "Press RED key for any other letter.\n"
-                "\n"
-                "You can ignore the letters on the sides, and you won't receive feedback.\n"
-                "Wait for the '< >' prompt before responding.\n"
-                "\n"
-                "\n"
-                "Press the green key to begin"
+                "Some instructions for block type 1"
             )
         
         else:
             instruct_msg = (
-                "1-Back Trials\n"
-                "\n"
-                "\n"
-                "Press GREEN key if the CENTER letter is the SAME as the previous CENTER letter.\n"
-                "Press RED key if the CENTER letter is DIFFERENT from the previous CENTER letter.\n"
-                "\n"
-                "You can ignore the letters on the sides, and you won't receive feedback.\n"
-                "Wait for the '< >' prompt before responding.\n"
-                "\n"
-                "\n"
-                "Press the green key to begin"
+                "Some instructions for block type 2"
             )
         
         # End the practice block
@@ -2011,7 +1662,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         # --- Run Routine "trialIntro" ---
         # if trial has changed, end Routine now
-        if isinstance(nbackBlocks, data.TrialHandler2) and thisNbackBlock.thisN != nbackBlocks.thisTrial.thisN:
+        if isinstance(blockloop, data.TrialHandler2) and thisBlockloop.thisN != blockloop.thisTrial.thisN:
             continueRoutine = False
         trialIntro.forceEnded = routineForceEnded = not continueRoutine
         while continueRoutine:
@@ -2140,7 +1791,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         # --- Run Routine "ITI" ---
         # if trial has changed, end Routine now
-        if isinstance(nbackBlocks, data.TrialHandler2) and thisNbackBlock.thisN != nbackBlocks.thisTrial.thisN:
+        if isinstance(blockloop, data.TrialHandler2) and thisBlockloop.thisN != blockloop.thisTrial.thisN:
             continueRoutine = False
         ITI.forceEnded = routineForceEnded = not continueRoutine
         while continueRoutine and routineTimer.getTime() < 2.0:
@@ -2267,47 +1918,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine trial
             trial = data.Routine(
                 name='trial',
-                components=[leftFlank, central, rightFlank, respCue, earlyResp, resp],
+                components=[],
             )
             trial.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
             # Run 'Begin Routine' code from trialSetup
-            THIS CODE TELLS US WHAT TASK SHOULD BE TRIGGERED
+            # --- Set-up code for each trial ---
             
-            # The following variables are already defined at this point:
-            #   phase == 'practice'  (set in practiceIntro)  OR
-            #   phase == 'main'      (set in trialIntro)
-            #
-            # blockSetup in the welcome routine created:
-            #   practiceBlockTrials : list of practice rows for this block
-            #   blockTrials         : list of main rows for this block
-            
-            # Get that row from the pre-built list
+            # Get a trial row from a pre-built list
             if phase == 'practice':
-                row = practiceBlockTrials[practice.thisRepN]
-            
+                row = practice_list[trials.thisRepN]
             else:
-                row = blockTrials[trials.thisRepN]
-            
-            # Jittered cueOnset: time when '+' appears, AFTER the letters disappear
-            cueOnset = rng.uniform(respCueJitter[0], respCueJitter[1]) + stimulusDur  # stimulusDur = 0.5
-            
-            leftFlank.setText(row['flanker_letter']*3)
-            central.setText(row['central_letter'])
-            rightFlank.setText(row['flanker_letter']*3)
-            # create starting attributes for earlyResp
-            earlyResp.keys = []
-            earlyResp.rt = []
-            _earlyResp_allKeys = []
-            # create starting attributes for resp
-            resp.keys = []
-            resp.rt = []
-            _resp_allKeys = []
+                row = trial_list[trials.thisRepN]
             # Run 'Begin Routine' code from trigger_trial
-            letter_trigger_started = False
-            cue_trigger_started = False
-            
+            #letter_trigger_started = False
+            #cue_trigger_started = False
+            #
             # store start times for trial
             trial.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             trial.tStart = globalClock.getTime(format='float')
@@ -2340,233 +1967,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
-                
-                # *leftFlank* updates
-                
-                # if leftFlank is starting this frame...
-                if leftFlank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    leftFlank.frameNStart = frameN  # exact frame index
-                    leftFlank.tStart = t  # local t and not account for scr refresh
-                    leftFlank.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(leftFlank, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'leftFlank.started')
-                    # update status
-                    leftFlank.status = STARTED
-                    leftFlank.setAutoDraw(True)
-                
-                # if leftFlank is active this frame...
-                if leftFlank.status == STARTED:
-                    # update params
-                    pass
-                
-                # if leftFlank is stopping this frame...
-                if leftFlank.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > leftFlank.tStartRefresh + stimulusDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        leftFlank.tStop = t  # not accounting for scr refresh
-                        leftFlank.tStopRefresh = tThisFlipGlobal  # on global time
-                        leftFlank.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'leftFlank.stopped')
-                        # update status
-                        leftFlank.status = FINISHED
-                        leftFlank.setAutoDraw(False)
-                
-                # *central* updates
-                
-                # if central is starting this frame...
-                if central.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    central.frameNStart = frameN  # exact frame index
-                    central.tStart = t  # local t and not account for scr refresh
-                    central.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(central, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'central.started')
-                    # update status
-                    central.status = STARTED
-                    central.setAutoDraw(True)
-                
-                # if central is active this frame...
-                if central.status == STARTED:
-                    # update params
-                    pass
-                
-                # if central is stopping this frame...
-                if central.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > central.tStartRefresh + stimulusDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        central.tStop = t  # not accounting for scr refresh
-                        central.tStopRefresh = tThisFlipGlobal  # on global time
-                        central.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'central.stopped')
-                        # update status
-                        central.status = FINISHED
-                        central.setAutoDraw(False)
-                
-                # *rightFlank* updates
-                
-                # if rightFlank is starting this frame...
-                if rightFlank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    rightFlank.frameNStart = frameN  # exact frame index
-                    rightFlank.tStart = t  # local t and not account for scr refresh
-                    rightFlank.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(rightFlank, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'rightFlank.started')
-                    # update status
-                    rightFlank.status = STARTED
-                    rightFlank.setAutoDraw(True)
-                
-                # if rightFlank is active this frame...
-                if rightFlank.status == STARTED:
-                    # update params
-                    pass
-                
-                # if rightFlank is stopping this frame...
-                if rightFlank.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > rightFlank.tStartRefresh + stimulusDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        rightFlank.tStop = t  # not accounting for scr refresh
-                        rightFlank.tStopRefresh = tThisFlipGlobal  # on global time
-                        rightFlank.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'rightFlank.stopped')
-                        # update status
-                        rightFlank.status = FINISHED
-                        rightFlank.setAutoDraw(False)
-                
-                # *respCue* updates
-                
-                # if respCue is starting this frame...
-                if respCue.status == NOT_STARTED and tThisFlip >= cueOnset-frameTolerance:
-                    # keep track of start time/frame for later
-                    respCue.frameNStart = frameN  # exact frame index
-                    respCue.tStart = t  # local t and not account for scr refresh
-                    respCue.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(respCue, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'respCue.started')
-                    # update status
-                    respCue.status = STARTED
-                    respCue.setAutoDraw(True)
-                
-                # if respCue is active this frame...
-                if respCue.status == STARTED:
-                    # update params
-                    pass
-                
-                # if respCue is stopping this frame...
-                if respCue.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > respCue.tStartRefresh + cueDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        respCue.tStop = t  # not accounting for scr refresh
-                        respCue.tStopRefresh = tThisFlipGlobal  # on global time
-                        respCue.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'respCue.stopped')
-                        # update status
-                        respCue.status = FINISHED
-                        respCue.setAutoDraw(False)
-                
-                # *earlyResp* updates
-                waitOnFlip = False
-                
-                # if earlyResp is starting this frame...
-                if earlyResp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    earlyResp.frameNStart = frameN  # exact frame index
-                    earlyResp.tStart = t  # local t and not account for scr refresh
-                    earlyResp.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(earlyResp, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'earlyResp.started')
-                    # update status
-                    earlyResp.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(earlyResp.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(earlyResp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                
-                # if earlyResp is stopping this frame...
-                if earlyResp.status == STARTED:
-                    # is it time to stop? (based on local clock)
-                    if tThisFlip > cueOnset-frameTolerance:
-                        # keep track of stop time/frame for later
-                        earlyResp.tStop = t  # not accounting for scr refresh
-                        earlyResp.tStopRefresh = tThisFlipGlobal  # on global time
-                        earlyResp.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'earlyResp.stopped')
-                        # update status
-                        earlyResp.status = FINISHED
-                        earlyResp.status = FINISHED
-                if earlyResp.status == STARTED and not waitOnFlip:
-                    theseKeys = earlyResp.getKeys(keyList=['1', '2'], ignoreKeys=["escape"], waitRelease=False)
-                    _earlyResp_allKeys.extend(theseKeys)
-                    if len(_earlyResp_allKeys):
-                        earlyResp.keys = [key.name for key in _earlyResp_allKeys]  # storing all keys
-                        earlyResp.rt = [key.rt for key in _earlyResp_allKeys]
-                        earlyResp.duration = [key.duration for key in _earlyResp_allKeys]
-                
-                # *resp* updates
-                waitOnFlip = False
-                
-                # if resp is starting this frame...
-                if resp.status == NOT_STARTED and tThisFlip >= cueOnset-frameTolerance:
-                    # keep track of start time/frame for later
-                    resp.frameNStart = frameN  # exact frame index
-                    resp.tStart = t  # local t and not account for scr refresh
-                    resp.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(resp, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'resp.started')
-                    # update status
-                    resp.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(resp.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                
-                # if resp is stopping this frame...
-                if resp.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > resp.tStartRefresh + cueDur-frameTolerance:
-                        # keep track of stop time/frame for later
-                        resp.tStop = t  # not accounting for scr refresh
-                        resp.tStopRefresh = tThisFlipGlobal  # on global time
-                        resp.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'resp.stopped')
-                        # update status
-                        resp.status = FINISHED
-                        resp.status = FINISHED
-                if resp.status == STARTED and not waitOnFlip:
-                    theseKeys = resp.getKeys(keyList=['1','2'], ignoreKeys=["escape"], waitRelease=False)
-                    _resp_allKeys.extend(theseKeys)
-                    if len(_resp_allKeys):
-                        resp.keys = _resp_allKeys[0].name  # just the first key pressed
-                        resp.rt = _resp_allKeys[0].rt
-                        resp.duration = _resp_allKeys[0].duration
-                        # a response ends the routine
-                        continueRoutine = False
                 # Run 'Each Frame' code from trigger_trial
-                if rightFlank.status == STARTED and not letter_trigger_started:
-                    win.callOnFlip(dev.activate_line, bitmask=letter_start_code)
-                    letter_trigger_started = True
-                
-                if respCue.status == STARTED and not cue_trigger_started:
-                    win.callOnFlip(dev.activate_line, bitmask=cue_start_code)
-                    cue_trigger_started = True
-                
+                #if rightFlank.status == STARTED and not letter_trigger_started:
+                #    win.callOnFlip(dev.activate_line, bitmask=letter_start_code)
+                #    letter_trigger_started = True
+                #
+                #if respCue.status == STARTED and not cue_trigger_started:
+                #    win.callOnFlip(dev.activate_line, bitmask=cue_start_code)
+                #    cue_trigger_started = True
+                #
                 
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2615,20 +2024,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             
             THIS CODE ADDS RESULTS TO THE FINAL CSV FOR ANALYSIS
-            # check responses
-            if earlyResp.keys in ['', [], None]:  # No response was made
-                earlyResp.keys = None
-            trials.addData('earlyResp.keys',earlyResp.keys)
-            if earlyResp.keys != None:  # we had a response
-                trials.addData('earlyResp.rt', earlyResp.rt)
-                trials.addData('earlyResp.duration', earlyResp.duration)
-            # check responses
-            if resp.keys in ['', [], None]:  # No response was made
-                resp.keys = None
-            trials.addData('resp.keys',resp.keys)
-            if resp.keys != None:  # we had a response
-                trials.addData('resp.rt', resp.rt)
-                trials.addData('resp.duration', resp.duration)
             # the Routine "trial" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -2763,7 +2158,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-    # completed len(n_back_blocks) repeats of 'nbackBlocks'
+    # completed len(block_list) repeats of 'blockloop'
     
     
     # --- Prepare to start Routine "__end__" ---
